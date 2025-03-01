@@ -43,20 +43,23 @@ def get_stdin_details():
         "bytes": 0,
     }
 
-    line = stdin.readline()
-    while line:
-        details["bytes"] += len(line)
-
-        in_word = False
-        for c in line:
-            if not c.isspace():
-                in_word = True
-            elif in_word:
-                in_word = False
-                details["words"] += 1
-            if c == "\n":
-                details["lines"] += 1
-
+    try:
         line = stdin.readline()
+        while line:
+            details["bytes"] += len(line)
+
+            in_word = False
+            for c in line:
+                if not c.isspace():
+                    in_word = True
+                elif in_word:
+                    in_word = False
+                    details["words"] += 1
+                if c == "\n":
+                    details["lines"] += 1
+
+            line = stdin.readline()
+    except KeyboardInterrupt:
+        pass
 
     return details
