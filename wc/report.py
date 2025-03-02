@@ -38,3 +38,12 @@ def report(details, state, title):
         print(f"{details['longest']:3}", end="\t")
 
     print(title)
+
+def add_details(details1, details2):
+    total = {}
+    for k in details1.keys():
+        if k == "exists" or k == "is_file":
+            continue
+        total[k] = details1[k] + details2[k]
+    
+    return total
