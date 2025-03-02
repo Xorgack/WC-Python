@@ -37,6 +37,10 @@ def get_file_details(file_path):
                     details["words"] += 1
                 if c == "\n":
                     details["lines"] += 1
+            # Last word
+            if in_word:
+                details["words"] += 1
+
             details["longest"] = max(details["longest"], line_len)
             details["chars"] += line_len
 
@@ -67,6 +71,10 @@ def get_stdin_details():
                     details["words"] += 1
                 if c == "\n":
                     details["lines"] += 1
+
+            # Last word
+            if in_word:
+                details["words"] += 1
 
             details["longest"] = max(details["longest"], line_len)
             details["chars"] += line_len
