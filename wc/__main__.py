@@ -9,6 +9,8 @@ def main():
     parser.add_argument("-l", "--lines", action="store_true", help="count newline characters")
     parser.add_argument("-w", "--words", action="store_true", help="count words")
     parser.add_argument("-c", "--bytes", action="store_true", help="count bytes")
+    parser.add_argument("-m", "--chars", action="store_true", help="count characters")
+    parser.add_argument("-L", "--longest-line", action="store_true", help="count bytes")
     parser.add_argument("FILE_PATH", type=str, nargs="*", help="path to the FILE to process")
     args = parser.parse_args()
 
